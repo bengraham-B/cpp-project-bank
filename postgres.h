@@ -2,28 +2,26 @@
 #define POSTGRES_H
 
 #include <iostream>
-#include <pqxx/pqxx>
-
+#include <stdexcept> 
+#include <libpq-fe.h>
 using namespace std;
-ising namespace pqxx;
+
 
 void connect(){
-   try {
-        connection C("dbname=bank user=root password=root hostaddr = 127.0.0.1 port = 5429");
+   
+    const char *conninfo = "dbname=bank user=root password=root host=localhost port=5429";
 
-        if (C.is_open()){
-            cout << "Connected to DB" << C.dbname() <<endl;
-        
-        } else {
-            cout << "Cannot connect to DB" <<endl;
-        }
+    PGconn *conn = PQconnectdb(conninfo);
 
-        C.disconnect();
-   }
+    if (PQstatus(conn) != CONNECTION_OK){
+        cerr << "Connection to DB failed: " << PQerrorMessage(conn) <<endl;
+        return;
+    }
 
-   catch (const exception &e){
-        cerr << e.what() << endl;
-   }
+    cout << "Connected to database successfully" <<endl;
+
+    PQfinish(conn);
+
 }
 
 #endif
