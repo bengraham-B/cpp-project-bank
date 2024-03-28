@@ -4,13 +4,13 @@
 #include <sstream>
 #include "infolder.h"
 
-#include "postgres.h"
-void balance(){
-    cout << "Balance: $0" << endl;
-    connect();
-    infolder();
-
-}
+// // #include "postgres.h"
+// void balance(){
+//     cout << "Balance: $0" << endl;
+//     connect();
+//     infolder();
+//
+// }
 
 // void getUserBalance(string name){
 //     stringstream querybuilder;

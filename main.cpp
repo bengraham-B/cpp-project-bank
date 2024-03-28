@@ -6,6 +6,7 @@
 #include "header/login.h"
 #include "header/balance.h"
 #include "header/infolder.h"
+#include "header/insert_transaction.h"
 
 using namespace std;
 
@@ -25,7 +26,30 @@ int main(){
         }
 
         else if (userOption == 2){
-            balance();            
+            // balance();            
+        }
+
+        else if (userOption == 3){
+            cout << "Deposit Money" <<endl;
+            string name;
+            int amount;
+            string details;
+            string type_;
+
+            cout << "Name: ";
+            cin >> name;
+
+            cout << "Amount: ";
+            cin >> amount;
+
+            cout << "Details: ";
+            cin >> details;
+
+            cout << "Type: ";
+            cin >> type_;
+
+            insertTransaction(name, amount, details, type_);
+
         }
     }
    return 0;
