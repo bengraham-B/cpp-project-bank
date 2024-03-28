@@ -1,11 +1,13 @@
 #include <iostream>
 #include <libpq-fe.h>
 
+#include "header/infolder.h"
 using namespace std;
 
 int main() {
     const char *conninfo = "dbname=bank user=root password=root host=localhost port=5429";
 
+    infolder();
     PGconn *conn = PQconnectdb(conninfo);
 
     if (PQstatus(conn) != CONNECTION_OK){

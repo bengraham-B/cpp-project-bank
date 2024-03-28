@@ -2,13 +2,15 @@
 #include <cstdlib>
 
 // Importing Bank Header files
-#include "options.h"
-#include "login.h"
-#include "balance.h"
+#include "header/options.h"
+#include "header/login.h"
+#include "header/balance.h"
+#include "header/infolder.h"
 
 using namespace std;
 
 int main(){
+    infolder();
     bool exit = false;
     while (!exit){
         int userOption = showOptions();

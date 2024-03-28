@@ -2,13 +2,14 @@
 #define POSTGRES_H
 
 #include <iostream>
-#include <stdexcept> 
+// #include <stdexcept> 
 #include <libpq-fe.h>
+#include "infolder.h"
 using namespace std;
 
 
 void connect(){
-   
+    infolder();
     const char *conninfo = "dbname=bank user=root password=root host=localhost port=5429";
 
     PGconn *conn = PQconnectdb(conninfo);
